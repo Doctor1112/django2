@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +55,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="#" style="position: relative; left: 1050px;bottom: 1px" >About me</a>
+        <a class="nav-item nav-link" href="{% static 'aboutme.txt' %}" download="" style="position: relative; left: 1050px;bottom: 1px" >About me</a>
         <a class="nav-item nav-link" href="#" style="position: relative; left: 1100px;bottom: 1px" >Vk</a>
         <a class="nav-item nav-link" href="#" style="position: relative; left: 1200px;bottom: 1px" >Blog</a>
       </div>
