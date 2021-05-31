@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,7 @@
 
     <<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    
+
 
     <!-- Bootstrap core CSS -->
 <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -41,32 +42,32 @@
       }
     </style>
 
-    
+
   </head>
   <body>
-    
+
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: green">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">My blog</a>
+    <a class="navbar-brand" href="{% url 'home' %}">My blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="#" style="position: relative; left: 1050px;bottom: 1px" >About me</a>
-        <a class="nav-item nav-link" href="#" style="position: relative; left: 1100px;bottom: 1px" >Vk</a>
-        <a class="nav-item nav-link" href="#" style="position: relative; left: 1200px;bottom: 1px" >Blog</a>
+        <a class="nav-item nav-link" href="{% static 'aboutme.txt' %}" download="" style="position: relative; left: 1050px;bottom: 1px" >About me</a>
+        <a class="nav-item nav-link" href="https://vk.com/dimo11" style="position: relative; left: 1100px;bottom: 1px" >Vk</a>
+        <a class="nav-item nav-link" href="{% url 'showblog' %}" style="position: relative; left: 1200px;bottom: 1px" >Blog</a>
       </div>
     </div>
   </div>
 </nav>
 </header>
 
-<main>
+<main style="padding-left: 30px">
   <h1 class="pt-4 pl-3">Recent posts</h1>
   {% for post in posts.all %}
-  <h3>{{ post.title }}</h3>
+  <a href="{% url 'spec_post' post.id %}"><h3>{{ post.title }}</h3></a>
   <br/>
   {{ post.post_text }}
   <br/>
